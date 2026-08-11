@@ -1,0 +1,16 @@
+StudentID,Name,Age,Gender,Marks,City,Attendance,StudyHours
+101,Rahul,20,Male,85,Pune,92,3.5
+102,Priya,21,Female,92,Delhi,96,5.0
+103,Amit,22,Male,76,Mumbai,78,2.5
+104,Sneha,20,Female,88,Pune,89,4.0
+105,Rohan,21,Male,78,Delhi,82,3.0
+106,Ananya,22,Female,95,Mumbai,98,5.5
+107,Vikash,20,Male,67,Pune,70,2.0
+108,Neha,21,Female,81,Delhi,85,3.5
+109,Arjun,22,Male,73,Mumbai,75,2.5
+110,Kavya,20,Female,90,Pune,94,4.5
+111,Manish,21,Male,58,Delhi,65,1.5
+112,Pooja,22,Female,87,Mumbai,91,4.0
+113,Raj,20,Male,72,Pune,80,2.5
+114,Meera,21,Female,94,Delhi,97,5.0
+115,Karan,22,Male,64,Mumbai,72,2.0

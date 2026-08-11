@@ -1,0 +1,160 @@
+We'll build one production-grade application from scratch.
+
+Day 1
+Project Architecture
+Solution Structure
+Clean Architecture
+Domain Layer
+Application Layer
+Infrastructure Layer
+API Layer
+Day 2
+Repository Pattern
+Generic Repository
+Dependency Injection
+Entity Framework Core
+SQL Server
+Day 3
+Service Layer
+DTOs
+AutoMapper
+FluentValidation
+Global Exception Handling
+
+We'll continue with MediatR, CQRS, JWT, RabbitMQ, Saga, and Angular over the following weekends.
+
+Rule: We won't copy code from YouTube. Every class starts with "Why does this exist?" before we implement it.
+
+🌆 Evening (1–1.5 hrs) → Python/Data Science
+Friday
+
+🐼 Pandas Basics
+
+Why Pandas?
+Series
+DataFrame
+Creating DataFrames
+Reading CSV
+Saturday
+Indexing
+Selection
+Filtering
+Sorting
+Missing Values
+Sunday
+GroupBy
+Merge
+Join
+Pivot Table
+Real-world dataset
+
+After Pandas:
+
+📊 Matplotlib
+📈 Seaborn
+🤖 Machine Learning
+🧠 Deep Learning (later)
+
+C#
+↓
+OOP
+↓
+SOLID
+↓
+Clean Architecture
+↓
+Repository Pattern
+↓
+Service Layer
+↓
+EF Core
+↓
+SQL Server
+↓
+JWT
+↓
+MediatR
+↓
+CQRS
+↓
+RabbitMQ
+↓
+Saga Pattern
+↓
+Angular 17
+↓
+Docker
+↓
+Azure / AWS
+
+Python
+↓
+NumPy ✅
+↓
+Pandas
+↓
+Matplotlib
+↓
+Seaborn
+↓
+Scikit-Learn
+↓
+Machine Learning
+↓
+Deep Learning
+↓
+LLMs
+
+EnterpriseHRMS
+│
+├── ApiGateway
+│
+├── BuildingBlocks
+│   ├── SharedKernel
+│   ├── EventBus
+│   └── Common
+│
+├── Services
+│   ├── EmployeeService
+│   │   ├── EmployeeService.API
+│   │   ├── EmployeeService.Application
+│   │   ├── EmployeeService.Domain
+│   │   └── EmployeeService.Infrastructure
+│   │
+│   ├── DepartmentService
+│   ├── PayrollService
+│   ├── IdentityService
+│   └── NotificationService
+
+Project(s)
+----------
+EnterpriseHRMS.API
+EnterpriseHRMS.Application
+EnterpriseHRMS.Domain
+EnterpriseHRMS.Infrastructure
+EnterpriseHRMS
+│
+├── API
+│   ├── Controllers
+│   ├── Middleware
+│   └── Program.cs
+│
+├── Application
+│   ├── Features
+│   ├── DTOs
+│   ├── Interfaces
+│   ├── Behaviors
+│   ├── Validators
+│   └── Mapping
+│
+├── Domain
+│   ├── Entities
+│   ├── Common
+│   ├── Enums
+│   └── Events
+│
+├── Infrastructure
+│   ├── Persistence
+│   ├── Repositories
+│   ├── Services
+│   └── Identity

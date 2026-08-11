@@ -1,0 +1,472 @@
+Python Notes
+
+| Feature    | List              | Tuple                | Set                                     |
+| ---------- | ----------------- | -------------------- | --------------------------------------- |
+| Syntax     | `[]`              | `()`                 | `{}`                                    |
+| Ordered    | Yes               | Yes                  | No                                      |
+| Mutable    | Yes               | No                   | Yes                                     |
+| Duplicates | Yes               | Yes                  | No                                      |
+| Indexing   | Yes               | Yes                  | No                                      |
+| Slicing    | Yes               | Yes                  | No                                      |
+| Use Case   | Data that changes | Fixed/read-only data | Unique values and fast membership tests |
+
+| Feature            | Description                     | Example               |
+| ------------------ | ------------------------------- | --------------------- |
+| Function           | Reusable block of code          | `def add():`          |
+| Call               | Executes a function             | `add()`               |
+| Parameter          | Variable in function definition | `def add(a, b):`      |
+| Argument           | Value passed to function        | `add(5, 10)`          |
+| Return             | Sends a value back              | `return a + b`        |
+| Local Variable     | Exists only inside function     | `x = 10` inside `def` |
+| Global Variable    | Defined outside function        | `x = 100`             |
+| Lambda Function    | Anonymous one-line function     | `lambda x: x*x`       |
+| Recursive Function | Calls itself                    | `factorial(n)`        |
+
+filter() returns an iterator, so you need to wrap it in list() to see the results.
+
+| Method         | Description                                                                 |
+| -------------- | --------------------------------------------------------------------------- |
+| `get()`        | Returns value of a key                                                      |
+| `keys()`       | Returns all keys                                                            |
+| `values()`     | Returns all values                                                          |
+| `items()`      | Returns key-value pairs                                                     |
+| `update()`     | Updates dictionary                                                          |
+| `pop()`        | Removes specified key                                                       |
+| `popitem()`    | Removes last item                                                           |
+| `clear()`      | Removes all items                                                           |
+| `copy()`       | Creates a copy                                                              |
+| `setdefault()` | Returns value if key exists, otherwise inserts the key with a default value |
+
+Advantages of Dictionary:
+Fast lookup using keys (average time complexity O(1)).
+Easy to store related data.
+Mutable (can be modified).
+Can store different data types.
+Supports nesting for complex data structures.
+Widely used in APIs, JSON data, databases, and configuration files.
+
+Limitations of Dictionary:
+Keys must be unique.
+Keys must be immutable (e.g., strings, numbers, tuples containing immutable elements). Lists and other dictionaries cannot be keys because they are mutable.
+Dictionaries are not indexed by position like lists. You access values using keys, not numeric indexes.
+
+| Feature    | List | Tuple | Set  | Dictionary            |
+| ---------- | ---- | ----- | ---- | --------------------- |
+| Ordered    | Yes  | Yes   | No   | Yes (Python 3.7+)     |
+| Mutable    | Yes  | No    | Yes  | Yes                   |
+| Duplicates | Yes  | Yes   | No   | Keys: No, Values: Yes |
+| Indexing   | Yes  | Yes   | No   | By keys only          |
+| Syntax     | `[]` | `()`  | `{}` | `{key: value}`        |
+
+Key Concepts of OOP
+
+There are four main pillars of OOP:
+
+Class
+Object
+Encapsulation
+Inheritance
+Polymorphism
+Abstraction
+| Method       | Purpose                                                     |
+| ------------ | ----------------------------------------------------------- |
+| `__init__()` | Constructor                                                 |
+| `__str__()`  | String representation of an object                          |
+| `__len__()`  | Defines behavior of `len()`                                 |
+| `__add__()`  | Defines behavior of `+`                                     |
+| `__del__()`  | Destructor (called when an object is about to be destroyed) |
+
+| Concept         | Meaning                                                           |
+| --------------- | ----------------------------------------------------------------- |
+| Class           | Blueprint for creating objects                                    |
+| Object          | Instance of a class                                               |
+| Constructor     | `__init__()` initializes object data                              |
+| `self`          | Refers to the current object                                      |
+| Encapsulation   | Bundling data and methods together                                |
+| Inheritance     | One class acquires properties and methods of another              |
+| Polymorphism    | One interface, many implementations                               |
+| Abstraction     | Hiding implementation details and showing only essential features |
+| Instance Method | Works with object data (`self`)                                   |
+| Class Method    | Works with class data (`cls`)                                     |
+| Static Method   | Independent utility method without `self` or `cls`                |
+|
+
+ Decorator              | Purpose                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| `@staticmethod`        | Defines a static method that doesn't receive `self` or `cls`.                  |
+| `@classmethod`         | Defines a class method that receives the class (`cls`) instead of an instance. |
+| `@property`            | Lets you access a method like an attribute (getter).                           |
+| `@functools.lru_cache` | Caches function results to improve performance.                                |
+Interview Questions
+1. What is a decorator?
+
+A decorator is a function that takes another function as input, adds additional functionality, and returns a modified function without changing the original function's source code.
+
+2. Why do we use decorators?
+
+To add reusable features such as logging, authentication, caching, validation, or timing while keeping the original function unchanged.
+
+3. What does @decorator mean?
+
+It is syntactic sugar for:
+
+function = decorator(function)
+4. Why use *args and **kwargs in decorators?
+
+They allow the decorator to work with functions that accept any number of positional and keyword arguments.
+
+5. Why use functools.wraps?
+
+It preserves the original function's metadata, such as its name, docstring, and annotations.
+
+Generator Execution Flow.
+
+Generator Starts
+       ↓
+Runs until yield
+       ↓
+Returns value
+       ↓
+Pauses execution
+       ↓
+next() called
+       ↓
+Continues after previous yield
+       ↓
+Repeats until finished
+       ↓
+StopIteration
+
+Memory Difference
+List
+numbers = [x for x in range(1000000)]
+Creates all values immediately
+Uses more memory
+Faster if reused many times
+Generator
+numbers = (x for x in range(1000000))
+Creates values on demand
+Uses much less memory
+Ideal for large datasets
+
+| Feature      | Normal Function     | Generator                   |
+| ------------ | ------------------- | --------------------------- |
+| Keyword      | `return`            | `yield`                     |
+| Returns      | Entire result       | One value at a time         |
+| Memory Usage | Higher              | Lower                       |
+| Execution    | Starts and finishes | Pauses and resumes          |
+| Best For     | Small results       | Large or infinite sequences |
+
+| List                   | Generator                  |
+| ---------------------- | -------------------------- |
+| Stored in memory       | Generated on demand        |
+| Faster repeated access | Better memory efficiency   |
+| Mutable                | Not mutable                |
+| Can be indexed         | Cannot be indexed directly |
+Interview Questions
+1. What is a generator?
+
+A generator is a function that uses the yield keyword to produce values one at a time while preserving its execution state.
+
+2. What is the difference between return and yield?
+return ends the function and sends back a value.
+yield sends back a value but pauses the function so it can continue later.
+3. Why are generators memory efficient?
+
+They generate values only when requested instead of storing all values in memory.
+
+4. What happens after all values are yielded?
+
+The generator raises a StopIteration exception, which is handled automatically by a for loop.
+
+5. What is a generator expression?
+
+A generator expression creates a generator object using parentheses:
+
+squares = (x*x for x in range(10))
+
+It works like a list comprehension but generates values lazily.
+
+Iterable
+
+An iterable is an object that can be iterated over.
+
+Examples:
+
+List
+Tuple
+String
+Dictionary
+Set
+File
+Range
+
+Example
+
+numbers = [1, 2, 3]
+
+The list is iterable.
+
+Iterator
+
+An iterator is an object that actually performs the iteration.
+
+You create it using iter().
+
+numbers = [1, 2, 3]
+
+it = iter(numbers)
+
+print(it)
+
+Output
+
+<list_iterator object at ...>
+
+Iterable
+   │
+   ▼
+iter()
+   │
+   ▼
+Iterator
+   │
+   ▼
+next()
+   │
+   ▼
+Returns next item
+   │
+   ▼
+No items left
+   │
+   ▼
+StopIteration
+
+Understanding the Methods
+__iter__()
+
+Returns the iterator object itself.
+
+def __iter__(self):
+    return self
+__next__()
+
+Returns the next item.
+
+def __next__(self):
+    ...
+
+When there are no more elements:
+
+raise StopIteration
+counter = Counter(3)
+
+print(next(counter))
+print(next(counter))
+print(next(counter))
+
+| Iterator                           | Generator                     |
+| ---------------------------------- | ----------------------------- |
+| Created using a class              | Created using a function      |
+| Uses `__iter__()` and `__next__()` | Uses `yield`                  |
+| More code to write                 | Less code                     |
+| More control                       | Easier to create              |
+| Can maintain custom state          | Automatically maintains state |
+
+| Iterable                            | Iterator                               |
+| ----------------------------------- | -------------------------------------- |
+| Can be looped over                  | Produces the next item                 |
+| Uses `iter()` to create an iterator | Uses `next()` to return values         |
+| Example: list, tuple, string        | Example: list iterator, tuple iterator |
+Interview Questions
+1. What is an iterator?
+
+An iterator is an object that returns one element at a time from a collection using the next() function.
+
+2. What is an iterable?
+
+An iterable is any object that can be converted into an iterator using the iter() function.
+
+3. What is the difference between an iterable and an iterator?
+An iterable is a collection (such as a list or tuple).
+An iterator is an object that retrieves elements from the iterable one by one.
+4. Which methods must a custom iterator implement?
+
+A custom iterator must implement:
+
+__iter__()
+__next__()
+5. What is StopIteration?
+
+StopIteration is the exception raised by an iterator when there are no more items to return.
+What Happens Behind the Scenes?
+
+When Python sees:
+
+with open("example.txt") as file:
+
+It secretly does something like:
+
+Open the file
+
+↓
+
+Give you the file
+
+↓
+
+Run your code
+
+↓
+
+Close the file
+
+Why do we need NumPy?
+
+Imagine AI is like a brain 🧠.
+
+The brain understands information in the form of numbers.
+
+Example:
+
+A person’s information:
+
+Age = 20
+Height = 170
+Weight = 60
+
+For a computer, it becomes:
+
+[20, 170, 60]
+
+When we have millions of such numbers, normal Python becomes slow.
+
+NumPy helps us handle numbers efficiently.
+
+3. np.empty()
+
+This is one of the most misunderstood functions.
+
+Many beginners think it creates an empty array.
+
+❌ Wrong.
+
+It creates an array without initializing the values.
+
+That means NumPy simply reserves memory and whatever values were already in that memory are shown.
+
+np.full()
+
+Creates an array where every element has the same value.
+
+Syntax
+
+np.full(shape, value)
+
+| Function  | What it creates      | Example             |
+| --------- | -------------------- | ------------------- |
+| `zeros()` | All 0s               | `[[0 0]]`           |
+| `ones()`  | All 1s               | `[[1 1]]`           |
+| `empty()` | Uninitialized values | Random-looking data |
+| `full()`  | Same specified value | `[[7 7]]`           |
+Q1. Why does np.zeros() return floats by default?
+
+Answer: NumPy defaults to float64 unless you specify a different dtype, because floating-point numbers are common in
+ scientific and numerical computing.
+
+ Q2. What's the difference between zeros() and empty()?
+zeros() initializes every element to 0.
+empty() only allocates memory; the values are uninitialized and unpredictable until you overwrite them.
+
+np.empty() does NOT guarantee random values.
+
+What np.empty() actually does is:
+
+It allocates memory for the array.
+It does not initialize the values in that memory.
+
+So whatever data already exists in that memory location is what gets displayed.
+
+| Property | Meaning                     | Example (`arr = np.ones((4,5))`) |
+| -------- | --------------------------- | -------------------------------- |
+| `shape`  | Dimensions (rows, columns)  | `(4, 5)`                         |
+| `size`   | Total number of elements    | `20`                             |
+| `ndim`   | Number of dimensions (axes) | `2`                              |
+| `dtype`  | Type of each element        | `float64`                        |
+Why is np.empty() faster than np.zeros()?
+
+Answer:
+
+np.empty() is faster because it only allocates memory and does not initialize the array elements. In contrast, np.zeros() allocates memory and then 
+writes 0 to every element, which takes additional time.
+np.arange(start, stop, step)
+| Parameter | Meaning                           |
+| --------- | --------------------------------- |
+| start     | Starting value (default = 0)      |
+| stop      | Ending value (not included)       |
+| step      | Gap between numbers (default = 1) |
+
+| Python `range()`              | NumPy `arange()`                      |
+| ----------------------------- | ------------------------------------- |
+| Returns a `range` object      | Returns a NumPy array                 |
+| Used in loops                 | Used for numerical computing          |
+| Doesn't support decimal steps | Supports decimal steps (with caution) |
+Why is np.linspace() often preferred over np.arange() for decimal values?
+
+Answer: Because linspace() avoids many floating-point precision issues by generating a specified number of evenly spaced values.
+
+| `arange()`                               | `linspace()`                             |
+| ---------------------------------------- | ---------------------------------------- |
+| You specify the **step size**            | You specify the **number of values**     |
+| Stop is excluded                         | Stop is included by default              |
+| May have floating-point precision issues | Better for decimal ranges                |
+| Best for counting                        | Best for graphs and scientific computing |
+| Parameter | Meaning                      |
+| --------- | ---------------------------- |
+| `N`       | Number of rows               |
+| `M`       | Number of columns (optional) |
+| `k`       | Which diagonal gets the 1s   |
+
+| Feature              | `identity()` | `eye()`                |
+| -------------------- | ------------ | ---------------------- |
+| Only square matrix   | ✅ Yes        | ❌ No                   |
+| Rectangular matrix   | ❌ No         | ✅ Yes                  |
+| Shift diagonal (`k`) | ❌ No         | ✅ Yes                  |
+| Simpler syntax       | ✅ Yes        | Slightly more flexible |
+| Function    | Creates Copy?       | Changes Original? | Faster?         |
+| ----------- | ------------------- | ----------------- | --------------- |
+| `flatten()` | ✅ Yes               | ❌ No              | Slightly slower |
+| `ravel()`   | ❌ Usually No (view) | ✅ Yes (usually)   | ✅ Faster        |
+flatten() = Photocopy of a document. Write on the photocopy, the original stays the same.
+ravel() = The original document itself. Write on it, and the original changes.
+Difference between flatten and ravel?
+
+Answer: flatten() returns a copy; ravel() usually returns a view sharing the same memory.
+Broadcasting is NumPy's mechanism for performing arithmetic operations on arrays of different shapes by automatically expanding the 
+smaller array whenever possible.
+A very common interview question is:
+
+Why is broadcasting useful?
+
+Answer:
+
+It avoids writing loops.
+It is much faster because operations are implemented in optimized C code.
+It avoids creating unnecessary copies of data, making code more memory-efficient.
+| Function              | Values                                                                  |
+| --------------------- | ----------------------------------------------------------------------- |
+| `np.random.rand()`    | Random decimals between **0 and 1**                                     |
+| `np.random.randint()` | Random **integers** in a specified range                                |
+| `np.random.randn()`   | Random numbers from a normal distribution (can be negative or positive) |
+| `shuffle()`            | `permutation()`                    |
+| ---------------------- | ---------------------------------- |
+| Changes original array | Does **not** change original array |
+| Returns `None`         | Returns a new shuffled array       |
+
+
+| Operation  | Main idea                             |
+| ---------- | ------------------------------------- |
+| `merge()`  | Combine using a **column/key**        |
+| `join()`   | Combine primarily using the **index** |
+| `concat()` | **Stack/combine** DataFrames          |
