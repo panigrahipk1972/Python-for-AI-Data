@@ -326,3 +326,5 @@ if __name__ == "__main__":
 
         else:
             print("Invalid choice. Please try again.")
+
+            Seaborn, and after that we'll be ready for the Titanic EDA project.

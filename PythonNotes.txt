@@ -470,3 +470,32 @@ It avoids creating unnecessary copies of data, making code more memory-efficient
 | `merge()`  | Combine using a **column/key**        |
 | `join()`   | Combine primarily using the **index** |
 | `concat()` | **Stack/combine** DataFrames          |
+
+| Plot          | Best for                    |
+| ------------- | --------------------------- |
+| `histplot()`  | Understanding distribution  |
+| `boxplot()`   | Median, spread & outliers   |
+| `countplot()` | Counting categories         |
+| `barplot()`   | Comparing aggregated values |
+
+| Plot            | Main purpose                            |
+| --------------- | --------------------------------------- |
+| `barplot()`     | Compare aggregated values               |
+| `countplot()`   | Count categories                        |
+| `histplot()`    | Distribution                            |
+| `boxplot()`     | Spread & outliers                       |
+| `scatterplot()` | Relationship between variables          |
+| `lineplot()`    | Trends over time                        |
+| `heatmap()`     | Correlation/relationship matrix         |
+| `hue`           | Split data visually by another variable |
+| `kde=True`      | Show distribution curve                 |
+
+
+Titanic — today's findings
+👩 Gender → very strong survival difference
+🥇 Passenger class → strong survival difference
+💰 Fare → associated with survival
+👶 Age → weaker linear relationship
+👨‍👩‍👧 Family size → small families appeared more favorable
+⚓ Embarkation → Cherbourg had the highest observed survival rate
+🔥 Correlation → Pclass had the strongest numerical correlation with survival
