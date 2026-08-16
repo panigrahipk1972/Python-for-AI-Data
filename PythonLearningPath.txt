@@ -328,3 +328,125 @@ if __name__ == "__main__":
             print("Invalid choice. Please try again.")
 
             Seaborn, and after that we'll be ready for the Titanic EDA project.
+
+            | Topic                | What we'll cover                                                      |
+| -------------------- | --------------------------------------------------------------------- |
+| **Flask / FastAPI**  | Core framework concepts and API development                           |
+| **REST APIs**        | HTTP methods, endpoints, requests/responses, JSON, status codes, CRUD |
+| **Authentication**   | Login, authentication concepts, JWT and protected APIs                |
+| **Practice Project** | Build a **Simple Blog API**                                           |
+FastAPI
+   ↓
+Routes
+   ↓
+GET / POST / PUT / PATCH / DELETE
+Client
+  ↓
+JSON
+  ↓
+Pydantic
+  ↓
+Validation
+  ↓
+Python code
+Login
+  ↓
+Authentication
+  ↓
+JWT
+  ↓
+Protected endpoints
+                Blog API
+                   │
+        ┌──────────┼──────────┐
+        ↓          ↓          ↓
+      Posts       Users    Authentication
+        │                     │
+     CRUD                    JWT
+        │
+        └──────────┬──────────┘
+                   ↓
+                Database
+FastAPI is the framework that receives HTTP requests, maps them to our Python functions,
+ validates data, executes our application logic, and sends HTTP responses back to the client.
+| .NET                 | Python              |
+| -------------------- | ------------------- |
+| ASP.NET Core Web API | FastAPI             |
+| C#                   | Python              |
+| Controller/Endpoint  | Route function      |
+| `[HttpGet]`          | `@app.get()`        |
+| `[HttpPost]`         | `@app.post()`       |
+| DTO                  | Pydantic model      |
+| Swagger              | Swagger (automatic) |
+| JWT Authentication   | JWT Authentication  |
+
+| Method | Purpose          | Example           |
+| ------ | ---------------- | ----------------- |
+| GET    | Read             | `GET /posts`      |
+| POST   | Create           | `POST /posts`     |
+| PUT    | Replace/update   | `PUT /posts/1`    |
+| PATCH  | Partially update | `PATCH /posts/1`  |
+| DELETE | Delete           | `DELETE /posts/1` |
+
+POST
+ ↓
+Send data
+ ↓
+Server processes it
+ ↓
+Create resource
+ ↓
+Return response
+FastAPI fundamentals ✅
+REST API concepts ✅
+HTTP methods ✅
+Path parameters
+Query parameters
+Request body & JSON
+Pydantic models & validation
+Response models
+HTTP status codes
+Error/exception handling
+Authentication concepts
+JWT authentication
+🛠️ Then build the Blog API
+
+A path parameter is information that is part of the URL path.
+
+Imagine our Blog API has:
+
+GET /posts/10
+@app.get("/posts/{post_id}")
+def get_post(post_id: int):
+    return {"post_id": post_id}
+
+Query parameters come after ? in the URL.
+GET /posts?author=John
+
+You can have multiple parameters:
+GET /posts?author=John&limit=10
+@app.get("/posts")
+def get_posts(author: str, limit: int):
+    return {
+        "author": author,
+        "limit": limit
+    }
+Path parameter
+    ↓
+Identify a specific resource
+
+Query parameter
+    ↓
+Filter / search / sort / control the result    
+
+Swagger
+   ↓
+GET /students/101
+   ↓
+FastAPI
+   ↓
+student_id = 101
+   ↓
+get_student(101)
+   ↓
+JSON Response
