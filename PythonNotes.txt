@@ -499,3 +499,14 @@ Titanic — today's findings
 👨‍👩‍👧 Family size → small families appeared more favorable
 ⚓ Embarkation → Cherbourg had the highest observed survival rate
 🔥 Correlation → Pclass had the strongest numerical correlation with survival
+| Status | Meaning               | Typical API use                                |
+| ------ | --------------------- | ---------------------------------------------- |
+| `200`  | OK                    | Successful GET                                 |
+| `201`  | Created               | Successfully created resource                  |
+| `204`  | No Content            | Successful delete/update with no response body |
+| `400`  | Bad Request           | Invalid request/business validation            |
+| `401`  | Unauthorized          | Authentication missing/invalid                 |
+| `403`  | Forbidden             | Authenticated but not allowed                  |
+| `404`  | Not Found             | Resource doesn't exist                         |
+| `422`  | Validation Error      | Request data fails FastAPI/Pydantic validation |
+| `500`  | Internal Server Error | Unexpected server error                        |

@@ -450,3 +450,18 @@ student_id = 101
 get_student(101)
    ↓
 JSON Response
+FastAPI Fundamentals       ✅
+REST API Concepts          ✅
+HTTP Methods               ✅
+Path Parameters            ✅
+Query Parameters           ✅
+Request Body & JSON        ✅
+Pydantic Models            ✅
+Validation                 ✅
+Response Models            ✅
+Status Codes               ✅
+HTTPException              ✅
+Global Exception Handling  ← NEXT
+Authentication Concepts    ⬜
+JWT                        ⬜
+Blog API                   🎯
