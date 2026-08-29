@@ -510,3 +510,149 @@ Titanic — today's findings
 | `404`  | Not Found             | Resource doesn't exist                         |
 | `422`  | Validation Error      | Request data fails FastAPI/Pydantic validation |
 | `500`  | Internal Server Error | Unexpected server error                        |
+                LOGIN
+                  │
+                  ▼
+        Username + Password
+                  │
+                  ▼
+          Find User
+                  │
+                  ▼
+        Verify Password Hash
+                  │
+                  ▼
+          Generate JWT
+                  │
+                  ▼
+          Access Token
+                  │
+                  ▼
+   Authorization: Bearer <JWT>
+                  │
+                  ▼
+        get_current_user()
+                  │
+                  ▼
+          Validate JWT
+                  │
+             ┌────┴────┐
+           Valid      Invalid
+             │           │
+             ▼           ▼
+       Protected API     401
+
+       USERS
+┌─────┬──────────┬─────────────────────┬────────────────┐
+│ id  │ username │ email               │ password_hash  │
+├─────┼──────────┼─────────────────────┼────────────────┤
+│ 101 │ adyasha  │ adyasha@example.com │ $2b$12$...     │
+│ 102 │ rahul    │ rahul@example.com   │ $2b$12$...     │
+└─────┴──────────┴─────────────────────┴────────────────┘
+                     │
+                     │ 1
+                     │
+                     │
+                     │ many
+                     ▼
+POSTS
+┌────┬───────────────────┬───────────────┬───────────┐
+│ id │ title             │ content       │ author_id │
+├────┼───────────────────┼───────────────┼───────────┤
+│ 1  │ My First Blog     │ Hello...      │ 101       │
+│ 2  │ Learning FastAPI  │ Today...      │ 101       │
+│ 3  │ Python Tips       │ Some tips...  │ 102       │
+└────┴───────────────────┴───────────────┴───────────┘
+                 BlogAPI
+                    │
+          ┌─────────┴─────────┐
+          ↓                   ↓
+      models.py           schemas.py
+          │                   │
+          ↓                   ↓
+     Database             API Data
+          │                   │
+          └─────────┬─────────┘
+                    ↓
+                routers
+
+                                 auth.py
+                    │
+       ┌────────────┼────────────┐
+       ↓            ↓            ↓
+ Password       JWT creation   JWT verification
+ hashing             │              │
+       │             ↓              ↓
+       │       create_access_   get_current_user()
+       │          token()             │
+       │                              ↓
+       │                         jwt.decode()
+       │                              │
+       ↓                              ↓
+Register                         Protected routes
+       │
+       ↓
+Database
+
+                 routers/auth.py
+                       │
+          ┌────────────┴────────────┐
+          ↓                         ↓
+     /register                    /login
+          │                         │
+          ↓                         ↓
+ hash_password()             verify_password()
+          │                         │
+          └────────────┬────────────┘
+                       ↓
+                    auth.py
+                       │
+                       ↓
+              create_access_token()
+                       │
+                       ↓
+                     JWT 🔐
+                       │
+                       │
+                  Later request
+                       ↓
+                 /posts
+                       ↓
+              get_current_user()
+                       ↓
+                  jwt.decode()
+                       ↓
+                 VERIFY JWT 🔐
+
+                 AI
+→ Broad field of intelligent systems.
+
+Machine Learning
+→ A subset of AI where models learn patterns from data.
+
+Deep Learning
+→ A subset of ML based on neural networks.
+
+Feature (X)
+→ Input information given to the model.
+
+Target (y)
+→ Output we want the model to predict.
+
+Training
+→ Learning patterns from training data.
+
+Prediction
+→ Using the learned model on new data.
+
+Regression
+→ Predict numerical values.
+
+Classification
+→ Predict categories/classes.
+
+Unsupervised Learning
+→ Finding patterns in data without labeled targets.
+
+Generalization
+→ Ability of a model to perform well on unseen data.

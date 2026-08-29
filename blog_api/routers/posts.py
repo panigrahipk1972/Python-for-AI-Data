@@ -5,6 +5,7 @@ from database import get_db
 from models import Post
 from schemas import PostCreate, PostResponse
 from auth import get_current_user
+from models import User
 
 
 # -----------------------------------
@@ -29,13 +30,13 @@ router = APIRouter(
 def create_post(
     post: PostCreate,
     db: Session = Depends(get_db),
-    current_user: dict = Depends(get_current_user)
+    current_user: User = Depends(get_current_user)
 ):
 
     new_post = Post(
         title=post.title,
         content=post.content,
-        author_id=current_user["user_id"]
+        author_id=current_user.id
     )
 
     db.add(new_post)
@@ -46,7 +47,7 @@ def create_post(
 
 
 # -----------------------------------
-# Get All Posts
+# Get All Posts - Pagination
 # -----------------------------------
 
 @router.get(
@@ -54,12 +55,20 @@ def create_post(
     response_model=list[PostResponse]
 )
 def get_all_posts(
+    skip: int = 0,
+    limit: int = 10,
     db: Session = Depends(get_db)
 ):
 
-    posts = db.query(Post).all()
+    posts = (
+        db.query(Post)
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
 
     return posts
+
 
 
 # -----------------------------------
@@ -80,6 +89,7 @@ def get_post(
     ).first()
 
     if post is None:
+
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Post not found"
@@ -100,7 +110,7 @@ def update_post(
     post_id: int,
     post_data: PostCreate,
     db: Session = Depends(get_db),
-    current_user: dict = Depends(get_current_user)
+    current_user: User = Depends(get_current_user)
 ):
 
     post = db.query(Post).filter(
@@ -108,13 +118,18 @@ def update_post(
     ).first()
 
     if post is None:
+
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Post not found"
         )
 
-    # Check ownership
-    if post.author_id != current_user["user_id"]:
+    # -----------------------------------
+    # Check Ownership
+    # -----------------------------------
+
+    if post.author_id != current_user.id:
+
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="You can only update your own posts"
@@ -140,7 +155,7 @@ def update_post(
 def delete_post(
     post_id: int,
     db: Session = Depends(get_db),
-    current_user: dict = Depends(get_current_user)
+    current_user: User = Depends(get_current_user)
 ):
 
     post = db.query(Post).filter(
@@ -148,13 +163,18 @@ def delete_post(
     ).first()
 
     if post is None:
+
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Post not found"
         )
 
-    # Check ownership
-    if post.author_id != current_user["user_id"]:
+    # -----------------------------------
+    # Check Ownership
+    # -----------------------------------
+
+    if post.author_id != current_user.id:
+
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="You can only delete your own posts"
@@ -164,3 +184,4 @@ def delete_post(
     db.commit()
 
     return None
+

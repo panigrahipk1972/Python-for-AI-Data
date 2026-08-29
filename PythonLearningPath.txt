@@ -465,3 +465,682 @@ Global Exception Handling  ← NEXT
 Authentication Concepts    ⬜
 JWT                        ⬜
 Blog API                   🎯
+
+                 ┌──────────────┐
+                 │    Client    │
+                 └──────┬───────┘
+                        │
+                  Register/Login
+                        │
+                        ▼
+                 ┌──────────────┐
+                 │   FastAPI    │
+                 └──────┬───────┘
+                        │
+                Verify credentials
+                        │
+                        ▼
+                  Generate JWT
+                        │
+                        ▼
+                 ┌──────────────┐
+                 │ JWT Token    │
+                 └──────┬───────┘
+                        │
+                  Future requests
+                        │
+                        ▼
+              Authorization: Bearer JWT
+                        │
+                        ▼
+                 Protected API
+                        │
+                        ▼
+                 Blog Operations
+
+                 Python Fundamentals
+       ↓
+NumPy
+       ↓
+Pandas
+       ↓
+Matplotlib / Seaborn
+       ↓
+FastAPI + JWT
+       ↓
+Blog API 🎯
+       ↓
+────────────────────
+AI & Machine Learning
+       ↓
+Scikit-learn
+       ↓
+Machine Learning Fundamentals
+       ↓
+Sentiment Analysis 🎯
+       ↓
+TensorFlow
+       ↓
+PyTorch
+
+blog_api/
+│
+├── venv/
+│
+├── main.py
+│
+├── auth.py
+│
+├── database.py
+│
+├── models.py
+│
+├── schemas.py
+│
+├── routers/
+│   ├── auth.py
+│   └── posts.py
+│
+└── requirements.txt
+
+FastAPI              ✅
+Uvicorn              ✅
+JWT                  ✅
+Password Hashing     ✅
+Bearer Authentication ✅
+SQLAlchemy           ✅
+SQLite               ⏳
+Blog API             🚀 Starting
+
+                    FastAPI
+                       │
+                     main.py
+                       │
+          ┌────────────┴────────────┐
+          │                         │
+    routers/auth.py          routers/posts.py
+          │                         │
+          └────────────┬────────────┘
+                       │
+                    schemas.py
+                       │
+                    models.py
+                       │
+                  database.py
+                       │
+                    SQLite
+                    blog.db
+
+                    1. Move SECRET_KEY → .env
+2. Move DATABASE_URL → .env
+3. Improve JWT configuration
+4. Add proper authentication dependency
+5. Add Postman testing
+6. Add better validation
+7. Add pagination
+8. Add database relationships / author information
+9. Add error handling
+10. Organize the project into a cleaner production structure
+| #  | Improvement                                     | Status |
+| -- | ----------------------------------------------- | ------ |
+| 1  | Move `SECRET_KEY` → `.env`                      | ⏳      |
+| 2  | Move `DATABASE_URL` → `.env`                    | ⏳      |
+| 3  | Improve JWT configuration                       | ⏳      |
+| 4  | Add proper authentication dependency            | ⏳      |
+| 5  | Add Postman testing                             | ⏳      |
+| 6  | Add better validation                           | ⏳      |
+| 7  | Add pagination                                  | ⏳      |
+| 8  | Add database relationships / author information | ⏳      |
+| 9  | Add error handling                              | ⏳      |
+| 10 | Cleaner production structure                    | ⏳      |
+blog_api/
+│
+├── venv/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   │
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   └── security.py
+│   │
+│   ├── database/
+│   │   ├── __init__.py
+│   │   └── database.py
+│   │
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── models.py
+│   │
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   └── schemas.py
+│   │
+│   ├── routers/
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   └── posts.py
+│   │
+│   └── exceptions/
+│       ├── __init__.py
+│       └── handlers.py
+│
+├── .env
+├── .gitignore
+└── requirements.txt
+
+             AI & ML
+                │
+       ┌────────┴────────┐
+       │                 │
+ Machine Learning    Deep Learning
+       │                 │
+ Scikit-learn      TensorFlow/PyTorch
+       │                 │
+       └────────┬────────┘
+                │
+          NLP / Sentiment
+                │
+                ↓
+       Complete AI Project
+
+       # AI & MACHINE LEARNING — LEARNING PHASE
+
+## Goal
+
+Learn the fundamentals of Machine Learning, Deep Learning, NLP, and finally build practical AI applications.
+
+---
+
+# PHASE 1 — MACHINE LEARNING FOUNDATIONS
+
+## 1. Introduction to AI & Machine Learning
+
+Topics:
+
+* What is Artificial Intelligence?
+* What is Machine Learning?
+* What is Deep Learning?
+* AI vs ML vs Deep Learning
+* Real-world applications of Machine Learning
+
+## 2. Types of Machine Learning
+
+* Supervised Learning
+* Unsupervised Learning
+* Reinforcement Learning — basic introduction
+
+## 3. Basic ML Terminology
+
+* Dataset
+* Features (X)
+* Target / Label (y)
+* Training Data
+* Testing Data
+* Validation Data
+* Model
+* Training
+* Prediction
+* Inference
+
+## 4. ML Workflow
+
+Understand the complete workflow:
+
+Dataset
+→ Data Cleaning
+→ Data Preprocessing
+→ Feature Selection
+→ Train/Test Split
+→ Model Training
+→ Prediction
+→ Evaluation
+→ Model Improvement
+
+---
+
+# PHASE 2 — SCIKIT-LEARN
+
+## 1. Introduction to Scikit-learn
+
+* Installing Scikit-learn
+* Loading datasets
+* Preparing X and y
+* Train/Test Split
+* Training a model
+* Making predictions
+
+## 2. Regression
+
+Learn:
+
+* Linear Regression
+* Mean Squared Error
+* Mean Absolute Error
+* R² Score
+
+Practice Project:
+
+Student Marks Prediction
+
+Example:
+
+Study Hours + Attendance
+→ Model
+→ Predicted Marks
+
+## 3. Classification
+
+Learn:
+
+* Logistic Regression
+* K-Nearest Neighbors (KNN)
+* Decision Tree
+* Random Forest
+* Support Vector Machine (SVM)
+
+## 4. Classification Evaluation
+
+Learn:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* Confusion Matrix
+
+Practice Project:
+
+Titanic Survival Prediction
+
+---
+
+# PHASE 3 — DATA PREPROCESSING FOR ML
+
+Topics:
+
+* Missing Values
+* Duplicate Data
+* Categorical Variables
+* Numerical Variables
+* Label Encoding
+* One-Hot Encoding
+* Feature Scaling
+* Standardization
+* Normalization
+* Feature Selection
+
+## Scikit-learn Tools
+
+* StandardScaler
+* MinMaxScaler
+* LabelEncoder
+* OneHotEncoder
+* ColumnTransformer
+* Pipeline
+
+---
+
+# PHASE 4 — MODEL IMPROVEMENT
+
+Topics:
+
+* Overfitting
+* Underfitting
+* Bias
+* Variance
+* Train vs Test Performance
+* Cross Validation
+* Hyperparameters
+* Hyperparameter Tuning
+
+Learn:
+
+* GridSearchCV
+* RandomizedSearchCV
+
+---
+
+# PHASE 5 — UNSUPERVISED LEARNING
+
+Topics:
+
+* What is Unsupervised Learning?
+* Clustering
+* K-Means Clustering
+* Choosing number of clusters
+* Basic cluster evaluation
+
+Practice Project:
+
+Customer Segmentation
+
+Example:
+
+Customer Data
+→ K-Means
+→ Customer Groups
+
+---
+
+# PHASE 6 — MACHINE LEARNING PROJECTS
+
+Build small projects to combine everything learned.
+
+## Project 1 — Student Marks Prediction
+
+Concepts:
+
+* Regression
+* Data preprocessing
+* Train/Test split
+* Prediction
+* Evaluation
+
+## Project 2 — Titanic Survival Prediction
+
+Concepts:
+
+* Classification
+* Missing values
+* Encoding
+* Feature selection
+* Model evaluation
+
+## Project 3 — Customer Segmentation
+
+Concepts:
+
+* Unsupervised Learning
+* K-Means
+* Clustering
+
+---
+
+# PHASE 7 — DEEP LEARNING FUNDAMENTALS
+
+Before TensorFlow and PyTorch, understand:
+
+* What is a Neural Network?
+* Neuron
+* Weights
+* Bias
+* Layers
+* Input Layer
+* Hidden Layer
+* Output Layer
+* Activation Functions
+* ReLU
+* Sigmoid
+* Softmax
+
+## Neural Network Training
+
+Learn:
+
+* Forward Propagation
+* Loss Function
+* Backpropagation
+* Gradient Descent
+* Learning Rate
+* Epoch
+* Batch Size
+* Optimizer
+
+---
+
+# PHASE 8 — TENSORFLOW
+
+## Basics
+
+* What is TensorFlow?
+* Tensors
+* Tensor operations
+* Keras
+* Sequential Model
+* Dense Layers
+
+## Model Building
+
+Learn:
+
+* Input layer
+* Hidden layers
+* Output layer
+* Activation functions
+* Loss functions
+* Optimizers
+* model.compile()
+* model.fit()
+* model.predict()
+* model.evaluate()
+
+## Practice
+
+Build:
+
+* Basic classification model
+* Basic regression model
+
+---
+
+# PHASE 9 — PYTORCH
+
+## Basics
+
+* What is PyTorch?
+* Tensors
+* Tensor operations
+* Autograd
+* Datasets
+* DataLoaders
+
+## Neural Networks
+
+Learn:
+
+* nn.Module
+* Linear layers
+* Activation functions
+* Loss functions
+* Optimizers
+
+## Training Loop
+
+Understand:
+
+Input
+→ Model
+→ Prediction
+→ Loss
+→ Backward
+→ Optimizer
+→ Update Weights
+→ Repeat
+
+Practice:
+
+Build a simple neural network using PyTorch.
+
+---
+
+# PHASE 10 — NLP (NATURAL LANGUAGE PROCESSING)
+
+Introduction to working with text.
+
+Topics:
+
+* What is NLP?
+* Text preprocessing
+* Tokenization
+* Stop Words
+* Stemming
+* Lemmatization
+* Bag of Words
+* TF-IDF
+* Text Classification
+
+---
+
+# PHASE 11 — SENTIMENT ANALYSIS PROJECT ⭐
+
+Main AI/ML Practice Project
+
+Goal:
+
+Build a model that predicts whether text is:
+
+* Positive
+* Negative
+
+Example:
+
+"I absolutely loved this movie."
+
+→ Positive
+
+"The movie was boring."
+
+→ Negative
+
+## Project Workflow
+
+Dataset
+→ Text Cleaning
+→ Text Preprocessing
+→ TF-IDF
+→ Train/Test Split
+→ ML Model
+→ Training
+→ Prediction
+→ Evaluation
+
+Possible Models:
+
+* Logistic Regression
+* Naive Bayes
+* Linear SVM
+
+Then compare model performance.
+
+---
+
+# PHASE 12 — INTRODUCTION TO MODERN AI
+
+After completing Machine Learning + Deep Learning + NLP:
+
+## Transformers
+
+Learn the concepts of:
+
+* What is a Transformer?
+* Attention
+* Self-Attention
+* Embeddings
+* Encoder
+* Decoder
+* Tokenization
+
+## Large Language Models
+
+Introduction to:
+
+* LLMs
+* Generative AI
+* Prompt Engineering
+* Embeddings
+* Vector Databases
+* RAG
+* AI Agents
+
+---
+
+# PHASE 13 — AI APPLICATION DEVELOPMENT
+
+Combine your existing Python/FastAPI knowledge with AI.
+
+Architecture:
+
+AI Model
+↓
+Python
+↓
+FastAPI
+↓
+REST API
+↓
+Frontend
+↓
+AI Application
+
+Possible final projects:
+
+* Sentiment Analysis API
+* Text Classification API
+* Resume Analyzer
+* Recommendation System
+* AI Chatbot
+* RAG-based Question Answering System
+
+---
+
+# FINAL LEARNING PATH
+
+Python
+↓
+NumPy
+↓
+Pandas
+↓
+Matplotlib
+↓
+Seaborn
+↓
+FastAPI
+↓
+Machine Learning Fundamentals
+↓
+Scikit-learn
+↓
+ML Projects
+↓
+Deep Learning
+↓
+TensorFlow
+↓
+PyTorch
+↓
+NLP
+↓
+Sentiment Analysis
+↓
+Transformers
+↓
+Generative AI
+↓
+RAG
+↓
+AI Agents
+↓
+AI Application Development
+
+---
+
+# MAIN GOAL
+
+By the end of this phase, I should be able to:
+
+1. Understand Machine Learning concepts.
+2. Prepare and preprocess datasets.
+3. Train ML models using Scikit-learn.
+4. Evaluate and improve ML models.
+5. Understand Neural Networks.
+6. Build models using TensorFlow.
+7. Build models using PyTorch.
+8. Understand basic NLP.
+9. Build a Sentiment Analysis model.
+10. Expose an AI model through FastAPI.
+11. Understand the fundamentals of modern Generative AI.
+12. Build practical AI applications.

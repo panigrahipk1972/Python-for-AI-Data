@@ -31,7 +31,6 @@ def register(
     db: Session = Depends(get_db)
 ):
 
-    # Check if username already exists
     existing_user = db.query(User).filter(
         User.username == user.username
     ).first()
@@ -42,7 +41,6 @@ def register(
             detail="Username already exists"
         )
 
-    # Check if email already exists
     existing_email = db.query(User).filter(
         User.email == user.email
     ).first()
@@ -53,19 +51,14 @@ def register(
             detail="Email already exists"
         )
 
-    # Hash password
-    hashed_password = hash_password(
-        user.password
-    )
+    hashed_password = hash_password(user.password)
 
-    # Create database user
     new_user = User(
         username=user.username,
         email=user.email,
         password_hash=hashed_password
     )
 
-    # Save user
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
@@ -83,7 +76,6 @@ def login(
     db: Session = Depends(get_db)
 ):
 
-    # Find user
     user = db.query(User).filter(
         User.username == form_data.username
     ).first()
@@ -94,7 +86,6 @@ def login(
             detail="Invalid username or password"
         )
 
-    # Verify password
     password_valid = verify_password(
         form_data.password,
         user.password_hash
@@ -106,16 +97,12 @@ def login(
             detail="Invalid username or password"
         )
 
-    # JWT data
     token_data = {
         "user_id": user.id,
         "username": user.username
     }
 
-    # Create JWT
-    access_token = create_access_token(
-        token_data
-    )
+    access_token = create_access_token(token_data)
 
     return {
         "access_token": access_token,

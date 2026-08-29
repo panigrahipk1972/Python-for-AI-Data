@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
 
 
 # -----------------------------------
@@ -7,9 +7,21 @@ from pydantic import BaseModel, EmailStr
 
 class UserCreate(BaseModel):
 
-    username: str
+    username: str = Field(
+        ...,
+        min_length=3,
+        max_length=50,
+        description="Username must be between 3 and 50 characters"
+    )
+
     email: EmailStr
-    password: str
+
+    password: str = Field(
+        ...,
+        min_length=6,
+        max_length=100,
+        description="Password must be between 6 and 100 characters"
+    )
 
 
 class UserResponse(BaseModel):
@@ -28,8 +40,29 @@ class UserResponse(BaseModel):
 
 class LoginRequest(BaseModel):
 
+    username: str = Field(
+        ...,
+        min_length=3,
+        max_length=50
+    )
+
+    password: str = Field(
+        ...,
+        min_length=6,
+        max_length=100
+    )
+
+# -----------------------------------
+# Author Response
+# -----------------------------------
+
+class AuthorResponse(BaseModel):
+
+    id: int
     username: str
-    password: str
+
+    class Config:
+        from_attributes = True
 
 
 # -----------------------------------
@@ -38,8 +71,17 @@ class LoginRequest(BaseModel):
 
 class PostCreate(BaseModel):
 
-    title: str
-    content: str
+    title: str = Field(
+        ...,
+        min_length=3,
+        max_length=200,
+        description="Post title must be between 3 and 200 characters"
+    )
+
+    content: str = Field(
+        ...,
+        min_length=10
+    )
 
 
 class PostResponse(BaseModel):
@@ -48,6 +90,7 @@ class PostResponse(BaseModel):
     title: str
     content: str
     author_id: int
+    author: AuthorResponse
 
     class Config:
         from_attributes = True
