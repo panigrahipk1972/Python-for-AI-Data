@@ -656,3 +656,22 @@ Unsupervised Learning
 
 Generalization
 → Ability of a model to perform well on unseen data.
+Data
+ ↓
+Find relationship between X and y
+ ↓
+Try to fit a straight line
+ ↓
+Calculate prediction errors
+ ↓
+Square the errors
+ ↓
+Find the line with minimum total squared error
+ ↓
+BEST-FIT LINE
+
+| Model            | Training Performance | Testing Performance |
+| ---------------- | -------------------- | ------------------- |
+| **Underfitting** | Poor ❌               | Poor ❌              |
+| **Good Fit**     | Good ✅               | Good ✅              |
+| **Overfitting**  | Excellent ⭐          | Poor ❌              |

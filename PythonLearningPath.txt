@@ -1144,3 +1144,56 @@ By the end of this phase, I should be able to:
 10. Expose an AI model through FastAPI.
 11. Understand the fundamentals of modern Generative AI.
 12. Build practical AI applications.
+When you're ready, we'll continue with Scikit-learn Linear Regression from exactly this checkpoint
+
+Final Linear Regression checklist
+
+You now understand:
+
+✅ What X (features) and y (target) are
+✅ How Linear Regression works mathematically
+✅ Slope / coefficient
+✅ Intercept
+✅ model.fit(X, y)
+✅ model.coef_
+✅ model.intercept_
+✅ model.predict(X)
+✅ Predictions for new data
+✅ Residuals
+✅ MSE
+✅ RMSE
+✅ R² Score
+✅ Regression-line visualization
+✅ Difference between manual implementation and Scikit-learn
+We'll resume from exactly here with Train-Test Split.
+Linear Regression
+      ↓
+Mean
+      ↓
+Slope & Intercept
+      ↓
+Regression Equation
+      ↓
+Predictions
+      ↓
+Residuals
+      ↓
+Train-Test Split
+      ↓
+MSE
+      ↓
+RMSE
+      ↓
+R² Score
+      ↓
+Polynomial Regression
+      ↓
+Underfitting
+      ↓
+Good Fit
+      ↓
+Overfitting
+      ↓
+Model Selection
+      ↓
+Visualizationcd..
