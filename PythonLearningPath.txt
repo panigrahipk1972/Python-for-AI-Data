@@ -1197,3 +1197,19 @@ Overfitting
 Model Selection
       ↓
 Visualizationcd..
+I'm back — start Logistic Regression
+Step 5 — Let's see the Sigmoid mathematically
+Decision Boundary → Accuracy → Train/Test Split → Confusion Matrix
+Precision=
+TP+FP
+TP
+	​🌳 What a Decision Tree is
+How it makes decisions using questions/rules
+DecisionTreeClassifier in Scikit-learn
+Train/Test Split
+Predictions
+Accuracy
+Visualizing the tree
+Overfitting in Decision Trees
+max_depth and other important parameters
+A small hands-on project

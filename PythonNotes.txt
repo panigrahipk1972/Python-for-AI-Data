@@ -674,4 +674,41 @@ BEST-FIT LINE
 | ---------------- | -------------------- | ------------------- |
 | **Underfitting** | Poor ❌               | Poor ❌              |
 | **Good Fit**     | Good ✅               | Good ✅              |
+
 | **Overfitting**  | Excellent ⭐          | Poor ❌              |
+Then Logistic Regression converts z into a probability using the sigmoid function:
+
+P(y=1)=
+1+e
+−z
+1
+	​                 Logistic Regression
+                         ↓
+                    Train model
+                         ↓
+                  Train/Test Split
+                         ↓
+                    Predictions
+                         ↓
+                     Accuracy
+                         ↓
+                 Confusion Matrix
+                         ↓
+                  TP / TN / FP / FN
+                  Dataset
+   ↓
+Train/Test Split
+   ↓
+Train Logistic Regression
+   ↓
+Make Predictions
+   ↓
+Accuracy
+   ↓
+Confusion Matrix
+   ↓
+Precision / Recall / F1
+   ↓
+Cross-Validation
+   ↓
+Predict New Student
